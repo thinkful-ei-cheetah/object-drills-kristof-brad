@@ -79,7 +79,6 @@ newArr.forEach(person => console.log(person.name, person.jobTitle));
 
 
 
-
 // 5. Properties that aren't there
 // Expand on the previous example by adding a boss property to everyone except the owner of the company.
 // Change the iteration to print out messages in this format: "${title} ${name} reports to ${boss}.". For example: Junior Engineer Bob reports to Fred..
@@ -87,7 +86,10 @@ newArr.forEach(person => console.log(person.name, person.jobTitle));
 // Adjust the message so that people with no boss display "${title} ${name} doesn't report to anybody." - for example, Founder John doesn't report to anybody.
 
 
+person1.boss = 'Fred'
+person2.boss = 'Sam'
 
+newArr.forEach(person => console.log(person.boss !== undefined ? `${person.jobTitle} ${person.name} reports to ${person.boss}.` : `${person.jobTitle} ${person.name} doesn't report to anybody.`))
 
 
 
@@ -98,22 +100,22 @@ newArr.forEach(person => console.log(person.name, person.jobTitle));
 
 // Additionally, create a decodeWords function that utilizes your decode function to accept a single string of words, and then return the fully decoded message as a string.
 
-function decode (input) {
-    input = input.split(" ");
-    let answer = '';
+// function decode (input) {
+//     input = input.split(" ");
+//     let answer = '';
 
-    for (let i = 0; i < input.length; i++) { 
-        var p = input[i].charCodeAt(0) - 'a'.charCodeAt(0);
-        if (p >= 0 && p <= 3) {
-            answer = answer + input[i][p+1]
-        } else {
-            answer = answer + ' '
-        }
-    } 
-} 
-return answer; 
+//     for (let i = 0; i < input.length; i++) { 
+//         var p = input[i].charCodeAt(0) - 'a'.charCodeAt(0);
+//         if (p >= 0 && p <= 3) {
+//             answer = answer + input[i][p+1]
+//         } else {
+//             answer = answer + ' '
+//         }
+//     } 
+// } 
+// return answer; 
 
-console.log(decode('craft block argon meter bells brown croon droop'));
+// console.log(decode('craft block argon meter bells brown croon droop'));
 
 
 
