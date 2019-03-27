@@ -1,3 +1,5 @@
+'use strict' 
+
 // Object creator
 // In this drill, you need to write code for the createMyObject function so that it returns an object with the following key value pairs:
 
@@ -6,11 +8,16 @@
 // olly olly => 'oxen free'
 // sayHello => a function that returns the string 'hello'
 
-
-
-
-
-
+function createMyObject () {
+    return {
+        foo: 'bar',
+        answerToUniverse: 42,
+        'olly olly': 'oxen free',
+        sayHello: function () {
+            return 'hello';
+        },
+    }
+}
 
 
 
@@ -22,12 +29,14 @@
 // bizz => 'bizz'
 // bang => 'bang'
 
+function updateObject(obj) {
+    obj.foo = 'foo';
+    obj.bar = 'bar';
+    obj.bizz = 'bizz';
+    obj.bang = 'bang';
 
-
-
-
-
-
+    return obj
+}
 
 
 
@@ -37,12 +46,33 @@
 // So, for instance, if firstName was 'Jane' and lastName was 'Doe', fullName() should return 'Jane Doe'.
 
 
-
-
-
-
+function personMaker () {
+    const person = {
+        firstName: 'Paul',
+        lastName: 'Jones',
+        fullName: function () {
+            // return `${this.firstname} ${this.lastname}`
+            return this.firstName + ' ' + this.lastName;
+    },
+  };
+  return person;
+}
 
 
 
 // Deleting keys
 // Modify the keyDeleter function so that it deletes keys for foo and bar for any object passed in and then returns the modified object.
+
+const sampleObj = {
+    foo: 'foo',
+    bar: 'bar',
+    bizz: 'bizz',
+    bang: 'bang',
+  };
+  
+function keyDeleter(obj) {
+    delete obj.foo
+    delete obj.bar
+
+    return obj
+  }
