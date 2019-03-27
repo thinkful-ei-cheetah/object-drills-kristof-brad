@@ -117,7 +117,20 @@ newArr.forEach(person => console.log(person.boss !== undefined ? `${person.jobTi
 
 // console.log(decode('craft block argon meter bells brown croon droop'));
 
+function decode (input) {
+  const decoder = {
+    a: 2,
+    b: 3,
+    c: 4,
+    d: 5, 
+  };
+  return input.split(' ').map( word => {
+    if (decoder[word[0]] === undefined) return ' ';
+    return word[decoder[word[0]] - 1];
+  }).join('');
+} 
 
+console.log(decode('craft block argon meter bells brown croon droop'));
 
 
 
