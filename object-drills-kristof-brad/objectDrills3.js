@@ -98,7 +98,22 @@ newArr.forEach(person => console.log(person.name, person.jobTitle));
 
 // Additionally, create a decodeWords function that utilizes your decode function to accept a single string of words, and then return the fully decoded message as a string.
 
+function decode (input) {
+    input = input.split(" ");
+    let answer = '';
 
+    for (let i = 0; i < input.length; i++) { 
+        var p = input[i].charCodeAt(0) - 'a'.charCodeAt(0);
+        if (p >= 0 && p <= 3) {
+            answer = answer + input[i][p+1]
+        } else {
+            answer = answer + ' '
+        }
+    } 
+} 
+return answer; 
+
+console.log(decode('craft block argon meter bells brown croon droop'));
 
 
 

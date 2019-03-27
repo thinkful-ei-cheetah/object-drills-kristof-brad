@@ -1,4 +1,4 @@
-'use strict' 
+'use strict';
 
 // Object creator
 // In this drill, you need to write code for the createMyObject function so that it returns an object with the following key value pairs:
