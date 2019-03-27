@@ -25,16 +25,16 @@ console.log(loaf.hydration());
 // Loop over the object using for ... in
 // Use console.log to show each property name and its associated value.
 
-cont myObj = {
-    foo: 2
-    bar: 3
-    fum: 6
-    quux: 9
-    spam: 7
+const myObj = {
+  foo: 2,
+  bar: 3,
+  fum: 6,
+  quux: 9,
+  spam: 7,
 }
 
 for (let key in myObj) {
-    console.log(key, myObj[key])
+  console.log(key, myObj[key]);
 }
 
 
@@ -44,6 +44,11 @@ for (let key in myObj) {
 // Use console.log to show the name of a hobbit's fourth meal of the day.
 // Don't forget that humans and hobbits count from 1, but computers count from 0.
 
+const obj2 = {
+  meals: ['breakfast', 'second breakfast', 'elevenses', 'lunch', 'afternoon tea', 'dinner', 'supper']
+};
+
+console.log(obj2.meals[3]);
 
 
 
@@ -54,7 +59,22 @@ for (let key in myObj) {
 // Store these objects in an array.
 // Iterate over the array and use console.log to show each person's job title and name.
 
+const person1 = {
+  name: 'Brad',
+  jobTitle: 'student',
+};
 
+const person2 = {
+  name: 'Kristof',
+  jobTitle: 'pilot',
+};
+
+const person3 = {
+  name: 'Jimmy',
+  jobTitle: 'teacher',
+};
+const newArr = [person1, person2, person3];
+newArr.forEach(person => console.log(person.name, person.jobTitle));
 
 
 
