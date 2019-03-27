@@ -1,0 +1,48 @@
+// Object creator
+// In this drill, you need to write code for the createMyObject function so that it returns an object with the following key value pairs:
+
+// foo => 'bar'
+// answerToUniverse => 42
+// olly olly => 'oxen free'
+// sayHello => a function that returns the string 'hello'
+
+
+
+
+
+
+
+
+
+// Object updater
+// Modify the updateObject function (which takes a single argument (obj)) so that it adds the following key/value pairs to obj and returns it:
+
+// foo => 'foo'
+// bar => 'bar'
+// bizz => 'bizz'
+// bang => 'bang'
+
+
+
+
+
+
+
+
+
+
+// Self-reference
+// Modify personMaker.fullName to be a function that uses self-reference (via this) in order to return the firstName and lastName properties separated by a space.
+
+// So, for instance, if firstName was 'Jane' and lastName was 'Doe', fullName() should return 'Jane Doe'.
+
+
+
+
+
+
+
+
+
+// Deleting keys
+// Modify the keyDeleter function so that it deletes keys for foo and bar for any object passed in and then returns the modified object.
