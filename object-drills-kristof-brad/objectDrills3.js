@@ -136,6 +136,18 @@ console.log(decode('craft block argon meter bells brown croon droop'));
 
 // 7. Factory Functions with LOTR
 // Write a factory function called createCharacter (review in this assignment) that could appropriately build characters from LOTR that have the following attributes:
+
+
+
+
+
+const characters = [
+  createCharacter('Gandalf the White', 'gandalf', 'Wizard', 'Middle Earth', 10, 6),
+  createCharacter('Bilbo Baggins', 'bilbo', 'Hobbit', 'The Shire', 2, 1),
+  createCharacter('Frodo Baggins', 'frodo', 'Hobbit', 'The Shire', 3, 2),
+  createCharacter('Aragon son of Arathorn', 'aragon', 'Man', 'Dunnedain', 6, 8),
+  createCharacter('Legalos', 'legalos', 'Elf', 'Woodland Realm', 8, 5)];
+
 // ===============================================================================================
 // | Name                      | Nickname    | Race       | Origin         | Attack   | Defense  |
 // -----------------------------------------------------------------------------------------------
