@@ -136,18 +136,6 @@ console.log(decode('craft block argon meter bells brown croon droop'));
 
 // 7. Factory Functions with LOTR
 // Write a factory function called createCharacter (review in this assignment) that could appropriately build characters from LOTR that have the following attributes:
-
-
-
-
-
-const characters = [
-  createCharacter('Gandalf the White', 'gandalf', 'Wizard', 'Middle Earth', 10, 6),
-  createCharacter('Bilbo Baggins', 'bilbo', 'Hobbit', 'The Shire', 2, 1),
-  createCharacter('Frodo Baggins', 'frodo', 'Hobbit', 'The Shire', 3, 2),
-  createCharacter('Aragon son of Arathorn', 'aragon', 'Man', 'Dunnedain', 6, 8),
-  createCharacter('Legalos', 'legalos', 'Elf', 'Woodland Realm', 8, 5)];
-
 // ===============================================================================================
 // | Name                      | Nickname    | Race       | Origin         | Attack   | Defense  |
 // -----------------------------------------------------------------------------------------------
@@ -189,11 +177,51 @@ const characters = [
 // How would you change the factory function and other methods?
 
 
+function createCharacter (name, nickname, race, origin, attack, defense) {
+    return {
+        name,
+        nickname,
+        race,
+        origin,
+        attack,
+        defense,
+        describe: function(){
+            return `${this.name} is a ${this.race} from ${this.origin}.`
+        },
+        evaluateFight: function (opponent){
+            return `Your opponent takes ${opponent.defence > this.attack ? 0 : this.attack - opponent.defense} damage and you receive ${opponent.attack < this. defense ? 0 : oponent.attack - this.defense} damage"`
+        }
+    }
+    
+}
 
+const characters = [
+    createCharacter('Gandalf the White', 'gandalf', 'Wizard', 'Middle Earth', 10, 6),
+    createCharacter('Bilbo Baggins', 'bilbo', 'Hobbit', 'The Shire', 2, 1),
+    createCharacter('Frodo Baggins', 'frodo', 'Hobbit', 'The Shire', 3, 2),
+    createCharacter('Aragorn son of Arathorn', 'aragorn', 'Man', 'Dunnedain', 6, 8),
+    createCharacter('Legalos', 'legalos', 'Elf', 'Woodland Realm', 8, 5)];
 
+characters.push (createCharacter('Golem', 'golem', 'creature', 'the land', 2, 2));
 
+let x = characters.find (character => character.nickname === 'aragorn').describe()
+console.log(x)
 
+let y = characters.filter (character => character.race === 'Hobbit')
+console.log(y)
 
+let highAttack = characters.filter (character => character.attack > 5)
+console.log(highAttack)
+
+let allWeapons = ['wizzard staff', 'ring', 'string and barrow blade', 'Anduril', 'bow and arrow', 'Hadhafang']
+let newChars = characters.map( (character, index) => {
+    character.weapon = allWeapons[index];
+    character.describe = function (){
+        return `${this.name} is a ${this.race} from ${this.origin} who uses ${this.weapon}.`
+    };
+    return character;
+  })
+console.log(newChars)
 
 
 // 8. BONUS: A Database Search
