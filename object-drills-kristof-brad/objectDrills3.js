@@ -227,67 +227,51 @@ console.log(newChars)
 // 8. BONUS: A Database Search
 // Put this dataset at the top of your program:
 
-// const HEROES = [
-//   { id: 1, name: 'Captain America', squad: 'Avengers' },
-//   { id: 2, name: 'Iron Man', squad: 'Avengers' },
-//   { id: 3, name: 'Spiderman', squad: 'Avengers' },
-//   { id: 4, name: 'Superman', squad: 'Justice League' },
-//   { id: 5, name: 'Wonder Woman', squad: 'Justice League' },
-//   { id: 6, name: 'Aquaman', squad: 'Justice League' },
-//   { id: 7, name: 'Hulk', squad: 'Avengers' },
-// ];
+const HEROES = [
+  { id: 1, name: 'Captain America', squad: 'Avengers' },
+  { id: 2, name: 'Iron Man', squad: 'Avengers' },
+  { id: 3, name: 'Spiderman', squad: 'Avengers' },
+  { id: 4, name: 'Superman', squad: 'Justice League' },
+  { id: 5, name: 'Wonder Woman', squad: 'Justice League' },
+  { id: 6, name: 'Aquaman', squad: 'Justice League' },
+  { id: 7, name: 'Hulk', squad: 'Avengers' },
+];
 // Write a function findOne() that takes in the following two arguments:
+function findOne(arr, query){
+  const keys = Object.keys(query);
+  const result = HEROES.find( hero => keys.every( key => hero[key] === query[key]));
+  return result === undefined ? null : result;
+}
 
-// arr - array of Heroes objects to search through
-// query - object with one or more key/value pairs that must exactly match the target Hero
-// The first matching result should be returned even if multiple match. If a match isn't found, return null
-
-// With the above data set, you should be able to call findOne with the arguments shown below and return the following results:
-
-// findOne(HEROES, { id: 1 });
-// => { id: 1, name: 'Captain America', squad: 'Avengers' }
-
-// findOne(HEROES, { id: 10 });
-// => null
-
-// findOne(HEROES, { id: 2, name: 'Aquaman' });
-// => null
-
-// findOne(HEROES, { id: 5, squad: 'Justice League' });
-// => { id: 5, name: 'Wonder Woman', squad: 'Justice League' }
-
-// findOne(HEROES, { squad: 'Justice League' });
-// => { id: 4, name: 'Superman', squad: 'Justice League' }
+console.log(findOne(HEROES, { squad: 'Justice League' }));
 
 
-
-
-
-
-
-
-
-
-
-// 8a. BONUS II: A Database Method
-// Let's create a fake database in memory with the same dataset:
-
-// const Database = {
-//   store: {
-//     heroes: [
-//       { id: 1, name: 'Captain America', squad: 'Avengers' },
-//       { id: 2, name: 'Iron Man', squad: 'Avengers' },
-//       { id: 3, name: 'Spiderman', squad: 'Avengers' },
-//       { id: 4, name: 'Superman', squad: 'Justice League' },
-//       { id: 5, name: 'Wonder Woman', squad: 'Justice League' },
-//       { id: 6, name: 'Aquaman', squad: 'Justice League' },
-//       { id: 7, name: 'Hulk', squad: 'Avengers' },
-//     ]
-//   }
-// };
+const Database = {
+  store: {
+    heroes: [
+      { id: 1, name: 'Captain America', squad: 'Avengers' },
+      { id: 2, name: 'Iron Man', squad: 'Avengers' },
+      { id: 3, name: 'Spiderman', squad: 'Avengers' },
+      { id: 4, name: 'Superman', squad: 'Justice League' },
+      { id: 5, name: 'Wonder Woman', squad: 'Justice League' },
+      { id: 6, name: 'Aquaman', squad: 'Justice League' },
+      { id: 7, name: 'Hulk', squad: 'Avengers' },
+    ]
+  },
+  findOne: function(query){
+    const arr = this.store.heroes;
+    const keyz = Object.keys(query);
+    const result = arr.find( hero => keyz.every( key => hero[key] === query[key]));
+    return result === undefined ? null : result;
+  },
+};
 // Add a method to Database called findOne and have it behave the same as the findOne function above. However, instead of referencing a HEROES array in the global scope, it should pull from the store in the Database. HINT: You'll want to use this for this...
+
+
+
 
 // The usage should be:
 
-// Database.findOne({ id: 2 });
+let u = Database.findOne({ id: 2 });
+console.log(u);
 // => { id: 2, name: 'Iron Man', squad: 'Avengers' }
